@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafafb" />
+    <title>Vin · Pratinjau Beranda (Mobile)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homepage-mobile.css" />
+  </head>
+  <body class="is-in">
+    <div class="preview-bar">
+      <span class="preview-text">Pratinjau mobile. Konten placeholder.</span>
+      <span class="state-toggle" role="group" aria-label="Status pengguna">
+        <button class="state-btn is-on" data-state="in" type="button">Masuk</button>
+        <button class="state-btn" data-state="out" type="button">Tamu</button>
+      </span>
+    </div>
+
+    <!-- Top bar: brand, search, profile -->
+    <header class="topbar">
+      <a class="brand" href="#">Vin</a>
+      <div class="topbar-actions">
+        <button class="icon-btn" type="button" aria-label="Cari">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+        <a class="icon-btn auth-in" href="#" aria-label="Bagikan build" title="Bagikan build">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
+          </svg>
+        </a>
+        <button class="avatar-btn auth-in" type="button" aria-label="Profil">
+          <span class="avatar avatar-sm" aria-hidden="true"></span>
+        </button>
+        <a class="btn btn-ghost auth-out" href="#">Masuk</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Full-bleed banner -->
+      <section class="banner" aria-labelledby="banner-title">
+        <div class="banner-media" aria-hidden="true">
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+        </div>
+        <div class="banner-overlay" aria-hidden="true"></div>
+        <div class="banner-inner">
+          <div class="banner-head">
+            <h1 id="banner-title" class="banner-title">Jelajahi build Gunpla</h1>
+            <p class="banner-sub">Temukan build dan builder dari Indonesia.</p>
+          </div>
+          <div class="builder-banner">
+            <span class="avatar-lg" aria-hidden="true"></span>
+            <span class="bb-text">
+              <span class="bb-name">@username</span>
+              <span class="bb-role">Builder pilihan</span>
+            </span>
+            <a class="bb-action" href="#feed">Lihat</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="page-pad">
+        <!-- Filter chips + sheet trigger -->
+        <section class="toolbar" aria-label="Cari dan filter">
+          <div class="chips">
+            <button class="chip is-on" type="button">Semua</button>
+            <button class="chip" type="button">MG 1/100</button>
+            <button class="chip" type="button">RG 1/144</button>
+            <button class="chip" type="button">PG 1/60</button>
+            <button class="chip" type="button">HG 1/144</button>
+          </div>
+          <button class="filter-btn" type="button" id="open-sheet">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Filter
+          </button>
+        </section>
+
+        <!-- Feed: two-up compact grid -->
+        <section id="feed" class="section" aria-labelledby="feed-title">
+          <div class="section-head">
+            <h2 id="feed-title" class="section-title">Build terbaru</h2>
+            <span class="section-note">[REAL DATA]</span>
+          </div>
+
+          <div class="grid" id="feed-grid">
+            <article class="card">
+              <div class="card-media">
+                <div class="thumb"><span class="thumb-label">Foto</span></div>
+                <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Nama kit</h3>
+                <div class="card-meta">
+                  <span class="card-grade">MG · 1/100</span>
+                  <span class="card-action">Lihat</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media">
+                <div class="thumb"><span class="thumb-label">Foto</span></div>
+                <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Nama kit</h3>
+                <div class="card-meta">
+                  <span class="card-grade">RG · 1/144</span>
+                  <span class="card-action">Lihat</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media">
+                <div class="thumb"><span class="thumb-label">Foto</span></div>
+                <span class="label-bootleg">Bootleg / KW</span>
+                <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Nama kit</h3>
+                <div class="card-meta">
+                  <span class="card-grade">HG · 1/144</span>
+                  <span class="card-action">Lihat</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media">
+                <div class="thumb"><span class="thumb-label">Foto</span></div>
+                <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Nama kit</h3>
+                <div class="card-meta">
+                  <span class="card-grade">PG · 1/60</span>
+                  <span class="card-action">Lihat</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media">
+                <div class="thumb"><span class="thumb-label">Foto</span></div>
+                <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Nama kit</h3>
+                <div class="card-meta">
+                  <span class="card-grade">MG · 1/100</span>
+                  <span class="card-action">Lihat</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-media">
+                <div class="thumb"><span class="thumb-label">Foto</span></div>
+                <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Nama kit</h3>
+                <div class="card-meta">
+                  <span class="card-grade">RG · 1/144</span>
+                  <span class="card-action">Lihat</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="load-more">
+            <button class="btn btn-secondary" type="button">Muat lebih banyak</button>
+          </div>
+        </section>
+
+        <!-- Horizontal carousel -->
+        <section class="section" aria-labelledby="series-title">
+          <div class="section-head">
+            <h2 id="series-title" class="section-title">Builder dan seri</h2>
+          </div>
+          <div class="carousel">
+            <article class="series-card">
+              <div class="series-media">
+                <div class="tile-sm"></div>
+                <div class="tile-sm"></div>
+                <div class="tile-sm"></div>
+              </div>
+              <h3 class="series-name">Nama seri</h3>
+              <p class="series-meta">[REAL DATA]</p>
+            </article>
+            <article class="series-card">
+              <div class="series-media">
+                <div class="tile-sm"></div>
+                <div class="tile-sm"></div>
+                <div class="tile-sm"></div>
+              </div>
+              <h3 class="series-name">Nama seri</h3>
+              <p class="series-meta">[REAL DATA]</p>
+            </article>
+            <article class="series-card">
+              <div class="series-media">
+                <div class="tile-sm"></div>
+                <div class="tile-sm"></div>
+                <div class="tile-sm"></div>
+              </div>
+              <h3 class="series-name">Nama seri</h3>
+              <p class="series-meta">[REAL DATA]</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Floating action button -->
+    <a class="fab auth-in" href="#" aria-label="Bagikan build" title="Bagikan build">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </a>
+
+    <!-- Bottom tab bar -->
+    <nav class="tabbar" aria-label="Navigasi bawah">
+      <a class="tab is-on" href="#feed">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m15.5 8.5-2 5-5 2 2-5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        Jelajahi
+      </a>
+      <a class="tab" href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Cari
+      </a>
+      <a class="tab" href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        Simpan
+      </a>
+      <a class="tab" href="#">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Profil
+      </a>
+    </nav>
+
+    <!-- Filter bottom sheet -->
+    <div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
+    <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Filter" hidden>
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <h2 class="sheet-title">Filter</h2>
+        <button class="icon-btn" type="button" id="close-sheet" aria-label="Tutup filter">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="sheet-body">
+        <fieldset class="sgroup">
+          <legend>Grade</legend>
+          <label class="sopt"><input type="checkbox" /> HG 1/144</label>
+          <label class="sopt"><input type="checkbox" /> RG 1/144</label>
+          <label class="sopt"><input type="checkbox" /> MG 1/100</label>
+          <label class="sopt"><input type="checkbox" /> PG 1/60</label>
+        </fieldset>
+        <fieldset class="sgroup">
+          <legend>Seri</legend>
+          <label class="sopt"><input type="checkbox" /> Universal Century</label>
+          <label class="sopt"><input type="checkbox" /> Iron-Blooded Orphans</label>
+          <label class="sopt"><input type="checkbox" /> Witch from Mercury</label>
+        </fieldset>
+        <fieldset class="sgroup">
+          <legend>Gaya</legend>
+          <label class="sopt"><input type="checkbox" /> Clean / straight</label>
+          <label class="sopt"><input type="checkbox" /> Weathered</label>
+          <label class="sopt"><input type="checkbox" /> Battle damage</label>
+          <label class="sopt"><input type="checkbox" /> Cel shading</label>
+        </fieldset>
+        <fieldset class="sgroup">
+          <legend>Teknik</legend>
+          <label class="sopt"><input type="checkbox" /> Airbrush</label>
+          <label class="sopt"><input type="checkbox" /> Scribing</label>
+          <label class="sopt"><input type="checkbox" /> Masking</label>
+          <label class="sopt"><input type="checkbox" /> LED</label>
+        </fieldset>
+        <fieldset class="sgroup">
+          <legend>Status</legend>
+          <label class="sopt"><input type="checkbox" /> Resmi</label>
+          <label class="sopt"><input type="checkbox" /> Pihak ketiga</label>
+          <label class="sopt"><input type="checkbox" /> Bootleg / KW</label>
+        </fieldset>
+      </div>
+      <div class="sheet-foot">
+        <button class="btn btn-ghost" type="button" id="reset-sheet">Reset</button>
+        <button class="btn btn-primary" type="button" id="apply-sheet">Terapkan</button>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <article class="card">
+        <div class="card-media">
+          <div class="thumb"><span class="thumb-label">Foto</span></div>
+          <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Nama kit</h3>
+          <div class="card-meta">
+            <span class="card-grade">MG · 1/100</span>
+            <span class="card-action">Lihat</span>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script>
+      const feedGrid = document.getElementById("feed-grid");
+      const sheet = document.getElementById("sheet");
+      const backdrop = document.getElementById("sheet-backdrop");
+
+      const openSheet = () => {
+        sheet.hidden = false;
+        backdrop.hidden = false;
+        document.body.classList.add("sheet-open");
+        document.getElementById("close-sheet").focus();
+      };
+
+      const closeSheet = () => {
+        sheet.hidden = true;
+        backdrop.hidden = true;
+        document.body.classList.remove("sheet-open");
+      };
+
+      document.getElementById("open-sheet").addEventListener("click", openSheet);
+      document.getElementById("close-sheet").addEventListener("click", closeSheet);
+      document.getElementById("apply-sheet").addEventListener("click", closeSheet);
+      backdrop.addEventListener("click", closeSheet);
+      document.getElementById("reset-sheet").addEventListener("click", () => {
+        sheet.querySelectorAll("input[type=checkbox]").forEach((c) => (c.checked = false));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !sheet.hidden) closeSheet();
+      });
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+
+        const stateBtn = target.closest(".state-btn");
+        if (stateBtn) {
+          const state = stateBtn.dataset.state;
+          document.body.classList.toggle("is-in", state === "in");
+          document.body.classList.toggle("is-out", state === "out");
+          document
+            .querySelectorAll(".state-btn")
+            .forEach((b) => b.classList.toggle("is-on", b === stateBtn));
+          return;
+        }
+
+        const chip = target.closest(".chip");
+        if (chip) {
+          document.querySelectorAll(".chip").forEach((c) => c.classList.remove("is-on"));
+          chip.classList.add("is-on");
+          return;
+        }
+
+        const tab = target.closest(".tab");
+        if (tab) {
+          document.querySelectorAll(".tab").forEach((t) => t.classList.remove("is-on"));
+          tab.classList.add("is-on");
+          return;
+        }
+
+        const save = target.closest(".save-btn");
+        if (save) {
+          const on = save.classList.toggle("is-saved");
+          save.setAttribute("aria-pressed", String(on));
+          return;
+        }
+
+        const load = target.closest(".load-more .btn");
+        if (load) {
+          const tpl = document.getElementById("card-template");
+          for (let i = 0; i < 4; i++) feedGrid.append(tpl.content.cloneNode(true));
+          load.disabled = true;
+          load.textContent = "Semua build sudah dimuat";
+        }
+      });
+    </script>
+  </body>
+</html>

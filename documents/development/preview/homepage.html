@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vin · Pratinjau Beranda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homepage.css" />
+  </head>
+  <body class="is-in">
+    <div class="preview-bar">
+      <span class="preview-text">
+        Pratinjau tata letak. Semua konten adalah placeholder, bukan build atau
+        builder sungguhan. Angka nyata ditandai [REAL DATA].
+      </span>
+      <span class="state-toggle" role="group" aria-label="Status pengguna">
+        <button class="state-btn is-on" data-state="in" type="button">Masuk</button>
+        <button class="state-btn" data-state="out" type="button">Tamu</button>
+      </span>
+    </div>
+
+    <!-- Header: brand - search - explore kit - explore builders - auth -->
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#">Vin</a>
+
+        <div class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <label class="sr-only" for="q">Cari kit, builder, atau seri</label>
+          <input id="q" class="search-input" type="search" placeholder="Cari kit, builder, atau seri" />
+        </div>
+
+        <a class="share-btn auth-in" href="#" aria-label="Bagikan build" title="Bagikan build">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
+          </svg>
+        </a>
+
+        <nav class="nav" aria-label="Utama">
+          <a class="nav-link" href="#feed">Jelajahi kit</a>
+          <a class="nav-link" href="#series">Jelajahi builder</a>
+          <a class="btn btn-ghost auth-out" href="#">Masuk</a>
+          <button class="avatar-btn auth-in" type="button" aria-label="Profil">
+            <span class="avatar avatar-sm" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- Wide banner: gallery image plus builder banner -->
+      <section class="banner" aria-labelledby="banner-title">
+        <div class="banner-media" aria-hidden="true">
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+          <div class="g-tile"></div>
+        </div>
+        <div class="banner-overlay" aria-hidden="true"></div>
+
+        <div class="banner-inner">
+          <div class="banner-head">
+            <p class="eyebrow">Katalog komunitas Gunpla</p>
+            <h1 id="banner-title" class="banner-title">Jelajahi build Gunpla</h1>
+            <p class="banner-sub">Temukan build dan builder dari Indonesia.</p>
+          </div>
+
+          <div class="builder-banner">
+            <span class="avatar-lg" aria-hidden="true"></span>
+            <span class="bb-text">
+              <span class="bb-name">@username</span>
+              <span class="bb-role">Builder pilihan</span>
+            </span>
+            <a class="bb-action" href="#feed">Lihat builder</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories and filters bar -->
+      <section class="filterbar" aria-label="Kategori dan filter">
+        <div class="fbar-inner">
+          <div class="fbar-left">
+            <div class="fdrop">
+              <button class="fchip" type="button" aria-expanded="false">
+                Grade
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="fmenu" hidden>
+                <label class="fopt"><input type="checkbox" /> HG 1/144</label>
+                <label class="fopt"><input type="checkbox" /> RG 1/144</label>
+                <label class="fopt"><input type="checkbox" /> MG 1/100</label>
+                <label class="fopt"><input type="checkbox" /> PG 1/60</label>
+              </div>
+            </div>
+
+            <div class="fdrop">
+              <button class="fchip" type="button" aria-expanded="false">
+                Seri
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="fmenu" hidden>
+                <label class="fopt"><input type="checkbox" /> Universal Century</label>
+                <label class="fopt"><input type="checkbox" /> Iron-Blooded Orphans</label>
+                <label class="fopt"><input type="checkbox" /> Witch from Mercury</label>
+                <label class="fopt"><input type="checkbox" /> SEED</label>
+              </div>
+            </div>
+
+            <div class="fdrop">
+              <button class="fchip" type="button" aria-expanded="false">
+                Gaya
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="fmenu" hidden>
+                <label class="fopt"><input type="checkbox" /> Clean / straight</label>
+                <label class="fopt"><input type="checkbox" /> Weathered</label>
+                <label class="fopt"><input type="checkbox" /> Battle damage</label>
+                <label class="fopt"><input type="checkbox" /> Cel shading</label>
+              </div>
+            </div>
+
+            <div class="fdrop">
+              <button class="fchip" type="button" aria-expanded="false">
+                Teknik
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="fmenu" hidden>
+                <label class="fopt"><input type="checkbox" /> Airbrush</label>
+                <label class="fopt"><input type="checkbox" /> Scribing</label>
+                <label class="fopt"><input type="checkbox" /> Masking</label>
+                <label class="fopt"><input type="checkbox" /> LED</label>
+              </div>
+            </div>
+
+            <div class="fdrop">
+              <button class="fchip" type="button" aria-expanded="false">
+                Status
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="fmenu" hidden>
+                <label class="fopt"><input type="checkbox" /> Resmi</label>
+                <label class="fopt"><input type="checkbox" /> Pihak ketiga</label>
+                <label class="fopt"><input type="checkbox" /> Bootleg / KW</label>
+              </div>
+            </div>
+          </div>
+
+          <label class="sort">
+            <span class="sort-label">Urut</span>
+            <select class="sort-select">
+              <option>Terbaru</option>
+              <option>Paling disimpan</option>
+              <option>Grade A sampai Z</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <!-- Feed -->
+      <section id="feed" class="section" aria-labelledby="feed-title">
+        <div class="section-head">
+          <h2 id="feed-title" class="section-title">Build terbaru</h2>
+          <span class="section-note">Jumlah nyata [REAL DATA]</span>
+        </div>
+
+        <div class="grid" id="feed-grid">
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">MG · 1/100</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">RG · 1/144</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <span class="label-bootleg">Bootleg / KW</span>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">HG · 1/144</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">PG · 1/60</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">MG · 1/100</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">RG · 1/144</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">HG · 1/144</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <div class="thumb"><span class="thumb-label">Foto build</span></div>
+              <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="card-creator">
+                <span class="avatar" aria-hidden="true"></span>
+                <span class="handle">@username</span>
+              </div>
+              <h3 class="card-title">Nama kit</h3>
+              <div class="card-meta">
+                <span class="card-grade">MG · 1/100</span>
+                <span class="card-action">Lihat build</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="load-more">
+          <button class="btn btn-secondary" type="button">Muat lebih banyak</button>
+        </div>
+      </section>
+
+      <!-- Popular series -->
+      <section id="series" class="section" aria-labelledby="series-title">
+        <div class="section-head">
+          <h2 id="series-title" class="section-title">Builder dan seri</h2>
+        </div>
+        <div class="series-grid">
+          <article class="series-card">
+            <div class="series-media">
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+            </div>
+            <div class="series-body">
+              <h3 class="series-name">Nama seri</h3>
+              <p class="series-meta">Jumlah build [REAL DATA]</p>
+            </div>
+          </article>
+          <article class="series-card">
+            <div class="series-media">
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+            </div>
+            <div class="series-body">
+              <h3 class="series-name">Nama seri</h3>
+              <p class="series-meta">Jumlah build [REAL DATA]</p>
+            </div>
+          </article>
+          <article class="series-card">
+            <div class="series-media">
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+            </div>
+            <div class="series-body">
+              <h3 class="series-name">Nama seri</h3>
+              <p class="series-meta">Jumlah build [REAL DATA]</p>
+            </div>
+          </article>
+          <article class="series-card">
+            <div class="series-media">
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+              <div class="tile-sm"></div>
+            </div>
+            <div class="series-body">
+              <h3 class="series-name">Nama seri</h3>
+              <p class="series-meta">Jumlah build [REAL DATA]</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <span class="brand brand-sm">Vin</span>
+          <span class="footer-tagline">Katalog build Gunpla · Indonesia</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="nav-link" href="#">Tentang</a>
+          <a class="nav-link" href="#">Pedoman</a>
+        </nav>
+      </div>
+    </footer>
+
+    <template id="card-template">
+      <article class="card">
+        <div class="card-media">
+          <div class="thumb"><span class="thumb-label">Foto build</span></div>
+          <button class="save-btn" type="button" aria-label="Simpan build" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.2-9A5 5 0 0 1 12 6.5 5 5 0 0 1 21.2 11C19 15.5 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="card-creator">
+            <span class="avatar" aria-hidden="true"></span>
+            <span class="handle">@username</span>
+          </div>
+          <h3 class="card-title">Nama kit</h3>
+          <div class="card-meta">
+            <span class="card-grade">MG · 1/100</span>
+            <span class="card-action">Lihat build</span>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script>
+      const feedGrid = document.getElementById("feed-grid");
+
+      const closeMenus = () => {
+        document.querySelectorAll(".fdrop").forEach((drop) => {
+          drop.querySelector(".fmenu").hidden = true;
+          drop.querySelector(".fchip").setAttribute("aria-expanded", "false");
+        });
+      };
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+
+        const stateBtn = target.closest(".state-btn");
+        if (stateBtn) {
+          const state = stateBtn.dataset.state;
+          document.body.classList.toggle("is-in", state === "in");
+          document.body.classList.toggle("is-out", state === "out");
+          document
+            .querySelectorAll(".state-btn")
+            .forEach((b) => b.classList.toggle("is-on", b === stateBtn));
+          return;
+        }
+
+        const chip = target.closest(".fchip");
+        if (chip) {
+          const drop = chip.closest(".fdrop");
+          const menu = drop.querySelector(".fmenu");
+          const open = menu.hidden;
+          closeMenus();
+          menu.hidden = !open;
+          chip.setAttribute("aria-expanded", String(open));
+          return;
+        }
+
+        if (!target.closest(".fdrop")) closeMenus();
+
+        const save = target.closest(".save-btn");
+        if (save) {
+          const on = save.classList.toggle("is-saved");
+          save.setAttribute("aria-pressed", String(on));
+          return;
+        }
+
+        const load = target.closest(".load-more .btn");
+        if (load) {
+          const tpl = document.getElementById("card-template");
+          for (let i = 0; i < 4; i++) feedGrid.append(tpl.content.cloneNode(true));
+          load.disabled = true;
+          load.textContent = "Semua build sudah dimuat";
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenus();
+      });
+    </script>
+  </body>
+</html>
