@@ -161,7 +161,9 @@ Preview files: `preview/homepage.html` (desktop) and `preview/homepage-mobile.ht
 
 ## 15. Implementation Status
 
-The homepage shell is implemented in `apps/web`: `SiteHeader`, `HeroBanner`, `FilterBar` (with the shadcn bottom sheet), `BuildFeed` (honest empty state, no fake data), `MobileNav` (bottom tabs and FAB), and placeholder routes for `/kit`, `/builder`, `/cari`, `/simpan`, `/profil`, and `/masuk`. Live data arrives in Increment 2 (Supabase and auth).
+The homepage shell is implemented in `apps/web`: `SiteHeader`, `HeroBanner`, `FilterBar` (with the shadcn bottom sheet), `BuildFeed` (honest empty state, no fake data), `MobileNav` (bottom tabs and FAB), and placeholder routes for `/kit`, `/builder`, `/cari`, `/simpan`, `/profil`, and `/masuk`.
+
+Increment 2 wiring is implemented: the feed renders live published builds from Drizzle (`getRecentPublishedBuilds`) behind a Suspense skeleton, the homepage is `force-dynamic`, `/masuk` has a working email/password and Google form backed by the auth adapter, and the header shows the avatar and `Keluar` action when a session exists. `Supabase` and `Drizzle` wiring is recorded in `ADR-008`. The `Bagikan build` primary action stays out of the header until the upload page exists, per the no dead controls rule.
 
 ## Related Documents
 

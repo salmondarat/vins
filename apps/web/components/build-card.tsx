@@ -4,8 +4,8 @@ import { Heart } from "lucide-react";
 export type Build = {
   id: string;
   title: string;
-  grade: string;
-  scale: string;
+  grade?: string;
+  scale?: string;
   builder: string;
   bootleg?: boolean;
 };
@@ -34,9 +34,15 @@ export function BuildCard({ build }: { build: Build }) {
       <div className="grid gap-1.5 p-3">
         <h3 className="truncate text-sm font-semibold">{build.title}</h3>
         <div className="flex items-center justify-between gap-2 border-t border-border pt-2">
-          <span className="font-mono text-[11px] text-muted-foreground">
-            {build.grade} · {build.scale}
-          </span>
+          {build.grade || build.scale ? (
+            <span className="font-mono text-[11px] text-muted-foreground">
+              {[build.grade, build.scale].filter(Boolean).join(" · ")}
+            </span>
+          ) : (
+            <span className="font-mono text-[11px] text-muted-foreground">
+              Tanpa grade
+            </span>
+          )}
           <Link
             href={`/build/${build.id}`}
             className="text-[13px] font-semibold text-primary"

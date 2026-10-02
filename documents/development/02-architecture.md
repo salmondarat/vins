@@ -99,7 +99,7 @@ Drizzle ORM defines the database schema. Migrations are generated from the Drizz
 
 Why this matters: the schema stays portable and reviewable in TypeScript, and the database is not defined by Supabase-specific tooling. A later move to self-hosted Supabase or plain Postgres changes connection and migration wiring, not the schema definition.
 
-The exact Drizzle package versions, migration workflow, and connection setup are not yet implemented. They are implementation details to be recorded in an ADR when chosen.
+The exact Drizzle package versions, migration workflow, and connection setup are implemented and recorded in [ADR-008](decisions/ADR-008-supabase-drizzle-wiring.md): Drizzle ORM 0.45.3 with the postgres.js driver, schema in `apps/web/db/schema.ts`, reviewable SQL migrations applied with `drizzle-kit migrate`, and `DATABASE_URL` pointing at the Supabase Session pooler.
 
 ## Adapter pattern for portability (confirmed)
 
@@ -122,7 +122,7 @@ Adapter responsibilities:
 
 Why this matters: a later move to self-hosted Supabase or plain Postgres becomes bounded work. Only the adapter implementations change. Feature code stays the same.
 
-The adapter interface shape is a development-level decision to be finalized during implementation and recorded in an ADR.
+The auth adapter interface (`AuthPort`) is implemented in `apps/web/lib/auth/` and recorded in [ADR-008](decisions/ADR-008-supabase-drizzle-wiring.md). The storage adapter interface is still to be finalized during the photo upload increment.
 
 ## Image storage for build photos (confirmed approach)
 
@@ -159,23 +159,23 @@ Later search behavior:
 
 Why this matters: a search service is an operational cost. The MVP should prove that people search and filter before Vin takes on that cost.
 
-## Environments and configuration (proposed, not yet implemented)
+## Environments and configuration (confirmed for local development)
 
-The MVP needs at least two environments: local development and production. A staging environment is recommended but not yet decided.
+The MVP needs at least two environments: local development and production. Local development uses a hosted Supabase project (the owner's existing project), decided in [ADR-008](decisions/ADR-008-supabase-drizzle-wiring.md). A staging environment is recommended but not yet decided.
 
 | Environment | Database | Purpose |
 | --- | --- | --- |
-| Local | Supabase project or local Supabase stack | Development and testing |
+| Local | Hosted Supabase project (Session pooler) | Development and testing |
 | Production | Supabase project | Live launch |
 
-Configuration is read from environment variables. Proposed variable names, to be confirmed during implementation:
+Configuration is read from environment variables. Confirmed variable names:
 
 | Variable | Scope | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL` | Public | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public | Supabase anonymous key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Server only | Privileged server operations, never exposed to the browser |
-| `DATABASE_URL` | Server only | Drizzle migrations and direct database access |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server only | Privileged server operations, never exposed to the browser. Reserved for later moderation tooling; not read anywhere today |
+| `DATABASE_URL` | Server only | Drizzle migrations and direct database access (Session pooler, port 5432) |
 
 Turborepo already declares `.env*` as build inputs, so environment files participate in task hashing. The exact secret management approach for production is an open question.
 
@@ -194,11 +194,9 @@ Turborepo already declares `.env*` as build inputs, so environment files partici
 
 ## Open questions
 
-- Exact Drizzle version, migration workflow, and connection setup.
-- Adapter interface shape for Auth and Storage.
-- Local development database choice: hosted Supabase project versus local Supabase stack.
 - Production secret management.
 - Whether a staging environment is needed before launch.
+- Storage adapter interface shape and upload flow (photo upload increment).
 - Image optimization and responsive delivery approach.
 - Home recommendation algorithm. Not approved. A proposal exists to keep search results focused, keep the homepage broad, and show personalization only as a small, clearly labeled section. This remains an open question.
 
